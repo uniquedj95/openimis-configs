@@ -6,26 +6,14 @@
   "menus": [
     {
       "position": 1,
-      "id": "assetManagementMainMenu",
+      "id": "assetMainMenu",
       "name": "Asset Management",
       "icon": "Devices",
       "description": "Asset Management",
       "submenus": [
         {
-          "position": 4,
-          "id": "individual.api_imports"
-        },
-        {
-          "position": 3,
-          "id": "socialProtection.benefitPlans"
-        },
-        {
           "position": 1,
-          "id": "individual.individuals"
-        },
-        {
-          "position": 2,
-          "id": "individual.groups"
+          "id": "AssetManagement.assets"
         }
       ]
     },

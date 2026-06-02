@@ -1,0 +1,30 @@
+[
+    {
+        "name": "AssetManagementTheme",
+        "primaryColor": "#005cb9",
+        "errorColor": "#c8102e",
+        "whiteColor": "#ffffff",
+        "fontColor": "#002244",
+        "backgroundColor": "#f4f7fb",
+        "headerColor": "#cfe0ee",
+        "greyColor": "#58595b",
+        "selectedTableRowColor": "rgba(0, 92, 185, 0.20)",
+        "hoveredTableRowColor": "rgba(0, 92, 185, 0.10)",
+        "toggledButtonColor": "#009fda",
+        "lockedBackgroundPattern": "repeating-linear-gradient(45deg, #e6ecf2 1px, #e6ecf2 1px, #ffffff 10px, #ffffff 10px)"
+    },
+    {
+        "name": "coreMISTheme",
+        "primaryColor": "#4f97d1",
+        "errorColor": "#d81b60",
+        "whiteColor": "#ffffff",
+        "fontColor": "#2c3e50",
+        "backgroundColor": "#f5f8fb",
+        "headerColor": "#e3eff9",
+        "greyColor": "#6b7280",
+        "selectedTableRowColor": "rgba(79, 151, 209, 0.20)",
+        "hoveredTableRowColor": "rgba(79, 151, 209, 0.10)",
+        "toggledButtonColor": "#63b38c",
+        "lockedBackgroundPattern": "repeating-linear-gradient(45deg, #e6edf3 1px, #e6edf3 1px, #ffffff 10px, #ffffff 10px)"
+    }
+]

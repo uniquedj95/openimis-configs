@@ -1,0 +1,4 @@
+{
+    "Location.types": ["R", "D"],
+    "Location.MaxLevels": "2"
+}

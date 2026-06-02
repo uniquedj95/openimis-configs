@@ -1,0 +1,7 @@
+{
+    "auth_type": "basic",
+    "auth_basic_username": "test@example.com",
+    "auth_basic_password": "your-password", 
+    "sink_model_lookup_field": "json_ext__ubr_id",
+    "sink_update_existing": true
+}

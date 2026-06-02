@@ -1,0 +1,105 @@
+{
+    "menuLeft": true,
+    "menus": [
+    {
+      "position": 1,
+      "id": "AssetMainMenu",
+      "name": "Asset Management",
+      "icon": "Devices",
+      "description": "Asset Management",
+      "submenus": [
+        {
+          "position": 1,
+          "id": "assetManagement.assets"
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "id": "TasksMainMenu",
+      "name":"Tasks Management",
+      "icon":"Assignment",
+      "description":"Tasks Management",
+      "submenus":[
+        {
+            "position":1,
+            "id":"task.allTasks"
+        },
+        {
+            "position":11,
+            "id":"admin.taskExecutionerGroups"
+        }
+      ]
+    },    
+    {
+      "position": 3,
+      "id": "OpenSearchReportsMenu",
+      "name": "Reports",
+      "icon": "Dashboard",
+      "description": "System Reports",
+      "submenus": [
+        {
+          "position": 1,
+          "id": "openSearch.individualReports"
+        },
+        {
+          "position": 2,
+          "id": "openSearch.groupReports"
+        },
+        {
+          "position": 3,
+          "id": "openSearch.beneficiaryReports"
+        },
+        {
+          "position": 4,
+          "id": "openSearch.dataUpdatesReports"
+        },
+        {
+          "position": 5,
+          "id": "openSearch.grievanceReports"
+        },
+        {
+          "position": 6,
+          "id": "openSearch.invoiceReports"
+        },
+        {
+          "position": 7,
+          "id": "openSearch.paymentReports"
+        },
+        {
+          "position": 8,
+          "id": "openSearch.openSearchConfig"
+        }
+      ]
+    },
+    {
+      "position":6,
+      "id": "AdminMainMenu",
+      "name":"Administration",
+      "icon":"Person",
+      "description":"Administration",
+      "submenus":[
+        {
+            "position":2,
+            "id":"admin.roleManagement"
+        },
+        {
+            "position":1,
+            "id":"admin.users"
+        },
+        {
+            "position":3,
+            "id": "admin.locations"
+        },
+        {
+            "position":4,
+            "id": "profile.myProfile"
+        },
+        {
+            "position":5,
+            "id":"profile.changePassword"
+        }
+      ]
+    }
+  ]
+}

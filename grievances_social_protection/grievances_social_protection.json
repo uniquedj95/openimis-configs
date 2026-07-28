@@ -1,0 +1,101 @@
+{
+  "default_grievance_type": "uncategorized",
+  "grievance_channels": ["Default", "Walk-in", "Phone", "SMS", "Field officer"],
+  "gql_query_tickets_perms": ["127000"],
+  "gql_mutation_create_tickets_perms": ["127001"],
+  "gql_mutation_update_tickets_perms": ["127002"],
+  "gql_mutation_delete_tickets_perms": ["127003"],
+  "gql_mutation_resolve_grievance_perms": ["127006"],
+  "grievance_types": [
+    {
+      "name": "Claims",
+      "priority": "High",
+      "resolution_times": "30,0",
+      "children": [
+        { "name": "Unpaid wages" },
+        {
+          "name": "Partial wages",
+          "workflow": {
+            "requires_amount": true,
+            "maker_checker": true,
+            "on_approved_signal": "payroll.benefit_consumption.create"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Updates",
+      "priority": "Normal",
+      "resolution_times": "14,0",
+      "children": [
+        { "name": "Household information changes",
+          "children": [
+            { "name": "Change HH Head" }, { "name": "Update NID" },
+            { "name": "Name Correction" }, { "name": "Phone Number Change" },
+            { "name": "Forgotten PIN" }, { "name": "Sim Swap" }, { "name": "Blocked Sim card" }
+          ] },
+        { "name": "Drop out" },
+        { "name": "Replacement (upcoming phase)" },
+        { "name": "HH Dissolution (single member HH)",
+          "workflow": { "on_resolve_task": "tasks_management" } },
+        { "name": "Deceased participant claim",
+          "workflow": { "on_resolve_task": "tasks_management" } }
+      ]
+    },
+    {
+      "name": "Sexual Exploitation and Abuse / Sexual Harassment",
+      "priority": "Critical",
+      "resolution_times": "0,0",
+      "permissions": ["restricted_read"]
+    }
+  ],
+  "default_attending_staff_role_ids": {
+    "Default": [15],
+    "Claims":                 { "role_ids": [16], "strategy": "random", "scope": "district" },
+    "Claims > Unpaid wages":  { "role_ids": [16], "strategy": "random", "scope": "district" },
+    "Claims > Partial wages": { "role_ids": [16], "strategy": "random", "scope": "district" },
+    "Sexual Exploitation and Abuse / Sexual Harassment":
+               { "role_ids": [17], "strategy": "random", "scope": "national" }
+  },
+  "notifications": { "on_assign": true, "include_due_date": true, "channels": ["email"] },
+
+  "ticket_statuses": [
+    { "code": "OPEN",        "label": "Open",        "initial": true },
+    { "code": "IN_PROGRESS", "label": "In progress" },
+    { "code": "REFERRED",    "label": "Referred",    "requires_referral_entity": true },
+    { "code": "RESOLVED",    "label": "Resolved",    "terminal": true }
+  ],
+  "referral_entities": ["Police", "Traditional Leader", "Court", "Ministry of Gender", "Other"],
+  "sla": {
+    "set_due_date_on_create": true,
+    "duration_basis": { "pending": "days_since_created", "resolved": "days_created_to_resolved" },
+    "row_colors": { "within_sla": "yellow", "breached": "red", "resolved": "white" }
+  },
+  "view_scope": {
+    "all_cases_roles":       [17],
+    "district_scoped_roles": [16, 15],
+    "creator_scoped_roles":  [9],
+    "default": "district_scoped"
+  },
+  "participant_fields": [
+    { "key": "nationalId",  "label": "National ID",  "source": "reporter.jsonExt.national_id" },
+    { "key": "name",        "label": "Name",         "source": "reporter.fullName" },
+    { "key": "phone",       "label": "Phone Number", "source": "reporter.jsonExt.household_mobile_number" },
+    { "key": "formNumber",  "label": "Form Number",  "source": "reporter.jsonExt.form_number" },
+    { "key": "village",     "label": "Village",              "source": "reporter.jsonExt.location_name" },
+    { "key": "gvh",         "label": "Group Village Head",   "source": "reporter.jsonExt.group_village_head_name" },
+    { "key": "ta",          "label": "Traditional Authority","source": "reporter.jsonExt.traditional_authority_name" },
+    { "key": "district",    "label": "District",     "source": "ticket.jsonExt.district_name" },
+    { "key": "catchment",   "label": "Micro-catchment", "source": "ticket.jsonExt.micro_catchment" },
+    { "key": "projectName", "label": "Project Name", "source": "ticket.jsonExt.project_name" },
+    { "key": "daysWorked",  "label": "Days Worked",  "source": "ticket.jsonExt.days_worked" }
+  ],
+
+  "search_filters": ["formNumber", "location", "nationalId", "status", "priority", "dateRange"],
+  "search_result_columns": [
+    { "key": "formNumber", "label": "HH Form Number" }, { "key": "location", "label": "Location" },
+    { "key": "status", "label": "Status" }, { "key": "priority", "label": "Priority" },
+    { "key": "attendingStaff", "label": "Officer Assigned" }, { "key": "duration", "label": "Duration" }
+  ],
+  "enable_export": true
+}

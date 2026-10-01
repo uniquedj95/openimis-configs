@@ -13,7 +13,7 @@
                     }
                 },
                 {
-                    "key": "business_type",
+                    "key": "type_of_business",
                     "weight": {
                         "Retail": 1,
                         "Service": 2,
@@ -83,7 +83,7 @@
                 }
             ],
             "selection_criteria": {
-                "data_source": "STCP",
+                "data_source": "SCTP",
                 "validation_status": "VERIFIED",
                 "willingness_to_participate": true,
                 "Age_limit": {
